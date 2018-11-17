@@ -6,7 +6,7 @@ const leftImage = document.getElementById('left');
 const centerImage = document.getElementById('center');
 const rightImage = document.getElementById('right');
 
-const allProducts = [];
+let allProducts = [];
 const container = document.getElementById('image_container');
 const viewed = [];
 const labels = [];
@@ -63,7 +63,7 @@ function handleClick(event) {
   for(let i = 0; i < names.length; i++){
     if(event.target.id === allProducts[i].name) {
       allProducts[i].votes += 1;
-      console.log(event.target.id + ' has ' + allProducts[i].votes + ' votes in ' + allProducts[i].views + ' views');
+      console.log(`${event.target.id} has ${allProducts[i].votes} votes in ${allProducts[i].views} views`);
     }
   }
   localStorage.busmall = JSON.stringify(allProducts);
@@ -74,7 +74,7 @@ function handleClick(event) {
 function showList() {
   for(let i = 0; i < allProducts.length; i++) {
     const liEl = document.createElement('li');
-    liEl.textContent = allProducts[i].name + ' has ' + allProducts[i].votes + ' votes in ' + allProducts[i].views + ' views';
+    liEl.textContent = `${allProducts[i].name} has ${allProducts[i].votes} votes in ${allProducts[i].views} views`;
     list.appendChild(liEl);
   }
 }
