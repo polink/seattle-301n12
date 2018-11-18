@@ -1,0 +1,16 @@
+*{
+  background-color: hotpink;
+}
+
+div {
+  border: black solid 2px;
+  background-color: purple;
+  height: 200px;
+  width: 200px;
+}
+
+@media(min-width:600px){
+  div {
+    float: left;
+  }
+}
