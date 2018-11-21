@@ -6,7 +6,6 @@ In lab today, you will be building a single responsive webpage based off of the 
 
 Your document must be designed in a ***mobile-first*** approach and must be responsive when the screen size changes and the page is refreshed. The details of the media query specifications are up to you, but your breakpoint must be at 768 pixels.
 
-This is an independent project, but your are free to collaborate with your classmates.
 
 ## Resources
 
