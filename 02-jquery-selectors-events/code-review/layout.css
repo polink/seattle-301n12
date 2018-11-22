@@ -1,0 +1,73 @@
+div {
+  float: left;
+  border: 1px solid black;
+  background: #888;
+  width: 100%;
+}
+
+
+.a {
+  height: 75px;
+  padding: 23px 0;
+
+}
+
+.b p {
+  text-align: center;
+  margin: 0;
+}
+
+.b {
+  height: 150px;
+  line-height: 150px;
+}
+
+.c {
+  height: 125px;
+}
+
+.d {
+  height: 125px;
+}
+
+.e, .f, .g, .h {
+  height: 250px;
+  width: 25%;
+}
+
+.i {
+  height: 80px;
+}
+
+@media(min-width: 768px){
+  .a {
+  height: 100px;
+}
+
+.a p {
+  height: 100%;
+  line-height: 100%;
+  text-align: center;
+}
+
+.b {
+  height: 600px;
+  width: 200px;
+}
+
+.c, .d {
+  height: 200px;
+  width: 380px;
+}
+
+
+.e, .f, .g, .h {
+  height: 250px;
+  width: 190px;
+}
+
+.i {
+  height: 150px;
+  width: 760px;
+}
+}

@@ -1,6 +1,7 @@
 div {
   float: left;
   margin: 40px;
+  border: solid black 1px;
 }
 
 img {
