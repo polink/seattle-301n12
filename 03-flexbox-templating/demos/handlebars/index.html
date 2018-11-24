@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Seattle Neighborhood Data</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+
+  <script type="text/x-handlebars-template" id="neighborhood-template">
+    <div>
+      <h2>{{ name }}</h2>
+      <p>Part of: {{ city }}</p>
+      <p>Current population: {{ population }}</p>
+      <p>Founded on: {{ founded }}</p>
+      {{ body }}
+    </div>
+  </script>
+
+  </head>
+  <body>
+    <header>
+      <section>
+        <h1>Neighborhood Stats</h1>
+      </section>
+    </header>
+
+    <main>
+      <section id="neighborhoods">
+        <div>
+          <h2>Redmond</h2>
+          <p>Part of: Redmond</p>
+          <p>Current population: 300</p>
+          <p>Founded on: july 4 1945</p>
+          <p>such a red city</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>&copy; 2018 Fake Data Limited</span>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js"></script>
+    <script src="scripts/dataSet.js"></script>
+    <script src="scripts/neighborhood.js"></script>
+  </body>
+</html>
