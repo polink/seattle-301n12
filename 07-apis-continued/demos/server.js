@@ -53,7 +53,6 @@ function searchToLatLong(query){
   const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${query}&key=${process.env.GEOCODE_API_KEY}`;
   return superagent.get(url)
     .then(geoData => {
-      console.log(geoData.body.results)
       const location = new Location(geoData.body.results[0]);
       return location;
     })
