@@ -6,11 +6,13 @@ Today we will continue to work with third-party APIs to request data. Part of be
 
 ## Daily Plan
 
-- Warm-up exercise
+- White Board 
 - Review code challenges
 - Introduction of today's code challenge topic
+
+- White Board
 - Code review of lab assignment
-- Functional programming concepts
+- API's and superagent, Postman
 - How to refactor code
 - Code Demo
 - Lab Preview
