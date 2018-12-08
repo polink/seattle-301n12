@@ -3,7 +3,6 @@
 //Application Dependencies
 const express = require('express');
 const cors = require('cors');
-const superagent = require('superagent');
 
 //Load env vars;
 require('dotenv').config();
@@ -24,10 +23,9 @@ app.get('/weather', getWeather)
 //Handlers
 
 function getLocation(request, response) {
-  return searchToLatLong(request.query.data) // 'Lynnwood, WA'
-    .then(locationData => {
-      response.send(locationData);
-    })
+  console.log(request.query.data);
+  const locationData = searchToLatLong(request.query.data); // 'Lynnwood, WA'
+  response.send(locationData);
 }
 
 function getWeather (req, res) {
@@ -50,15 +48,9 @@ function Location(location) {
 // Search for Resource 
 
 function searchToLatLong(query){
-  const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${query}&key=${process.env.GEOCODE_API_KEY}`;
-  return superagent.get(url)
-    .then(geoData => {
-      // console.log(geoData.results)
-      const location = new Location(geoData.results[0]);
-      return location;
-    })
-    .catch(err => console.error(err));
-  
+  const geoData = require('./data/geo.json');
+  const location = new Location(geoData.results[0]);
+  return location;
 }
 
 function searchForWeather(query){
