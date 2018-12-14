@@ -1,0 +1,20 @@
+{
+  "name": "demos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server-demo-1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server-demo-1.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "pg": "^7.7.1",
+    "superagent": "^4.0.0"
+  }
+}
