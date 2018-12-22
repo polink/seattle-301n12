@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <h1>My Grocery List</h1>
+    <p><a href="/">Home</a></p>
+    
+    <% if(groceries && groceries.length){ %>
+
+    <ul>
+      <% groceries.forEach(groceryItem => { %>
+
+        <li>I want some <%= groceryItem %></li>
+        
+      <% }); %>
+    </ul>
+
+    <%} else {%>
+
+    <% for(var i = 0; i < 5; i++){ %>
+
+      <h<%= i %> >I am getting smaller</h<%= i %>>
+
+    <% } %>
+    <% } %>
+    <!-- <ul>
+      <li>Apples</li>
+      <li>Pears</li>
+      <li>Bananas</li>
+    </ul> -->
+  </body>
+</html>
