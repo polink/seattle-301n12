@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include layout/head.ejs %>
+
+<header>
+  
+</header>
+<body>
+  <h1> you are home</h1>
+
+  <% if(false){ %>
+  <%- include layout/nav.ejs %>
+  <% } %>
+  <!-- INSERT INTO tasks (title, contact, status, category, description)
+  VALUES('milk cows','nicholas',FALSE,'farm','family is thirsty'); -->
+<ul>
+
+  <% tasks.forEach(task => { %>
+
+    <li>
+      <h3><%=task.title %></h3>
+      <p><%=task.description %></p>
+      <p>Ask <%=task.contact %> about the details, completion : <%= task.status %></p>
+    </li>
+
+  <% }) %>
+
+  </ul>
+
+
+</body>
+</html>
