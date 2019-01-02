@@ -2,10 +2,20 @@
 
 const express = require('express');
 const pg = require('pg');
+const methodOverride = require('method-override');
 
 const app = express();
 app.use(express.urlencoded({extended: true}));
 app.use(express.static('./public'));
+
+app.use(methodOverride((req, res) => {
+  if(req.body && typeof req.body === 'object' && '_method' in req.body){
+    console.log(req.body['_method']);
+    let method = req.body['_method'];
+    delete req.body['_method'];
+    return method; //returns PUT, PATCH, POST, GET, or DELETE
+  }
+}))
 
 app.set('view engine', 'ejs')
 
@@ -23,8 +33,18 @@ app.get('/task/:task_id', getOneTask);
 
 app.post('/task', addTask);
 
+app.delete('/task/:task_id', deleteTask);
+
 app.get('*', (req, res) => res.status(404).send('This route does not exist'));
 
+function deleteTask (req, res) {
+  console.log(`deleting the task ${req.params.task_id}`);
+  client.query(`DELETE FROM tasks WHERE id=$1`, [req.params.task_id])
+    .then(result => {
+      console.log(result);
+      res.redirect('/');
+    })
+}
 
 function showForm(req, res){
   res.render('pages/add-view');
