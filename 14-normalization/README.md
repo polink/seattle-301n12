@@ -7,7 +7,6 @@ Today is the final buildout of the book collection app. Our final step is to inc
 ## Daily Plan
 
 - Warm-up exercise
-- Review code challenges
 - Code review of lab assignment
 - Data modeling
 
