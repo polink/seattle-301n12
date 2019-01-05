@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Book App</title>
+        <link href="https://fonts.googleapis.com/css?family=Alegreya|Alegreya+SC|Alegreya+Sans|Alegreya+Sans+SC|Playfair+Display|Playfair+Display+SC" rel="stylesheet">
+        <link rel="icon" type="png" href="images/book_favicon.png"/>
+        <link rel="stylesheet" type="text/css" href="styles/reset.css"/>
+        <link rel="stylesheet" type="text/css" href="styles/base.css"/>
+        <link rel="stylesheet" type="text/css" href="styles/icons.css"/>
+        <link rel="stylesheet" type="text/css" href="styles/layout.css"/>
+        <link rel="stylesheet" type="text/css" href="styles/modules.css"/>
+    </head>
+    <body>
+        <%include ../layout/header%>
+        <main class="flex-column">
+            <h4 class="banner"><%= books.length%> Books in Collection</h4>
+                <ul id="bookshelf"  class="flex-column">
+                    <% books.forEach(book => { %> 
+                        <li class="new-book flex-column">
+                            <img src=<%= book.image_url %>>
+                            <h3><%= book.title %></h3>
+                            <h4><%= book.author %></h4>
+                            <a class="view-details-link" href="/books/<%=book.id%>">View Details</a>
+                        </li>
+                    <% }) %>
+                </ul>
+            </form>
+        </main>
+        <%include ../layout/footer%>
+    </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Book Detail</title>
+    <link href="https://fonts.googleapis.com/css?family=Alegreya|Alegreya+SC|Alegreya+Sans|Alegreya+Sans+SC|Playfair+Display|Playfair+Display+SC" rel="stylesheet">
+    <link rel="icon" type="png" href="../../../images/book_favicon.png"/>
+    <link rel="stylesheet" type="text/css" href="../styles/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="../styles/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../styles/icons.css"/>
+    <link rel="stylesheet" type="text/css" href="../styles/layout.css"/>
+    <link rel="stylesheet" type="text/css" href="../styles/modules.css"/>
+</head>
+<body>
+  <%include ../../layout/header%>
+  <main class="flex-column">
+    <form action="/books/edit/<%=selected_book.id%>" method="POST">
+      <input type="text" value="<%= book.title%>" name="title">
+      <input type="text" value="<%= book.author%>" name="author">
+      <input type="text" value="<%= book.isbn%>" name="isbn">
+      <input type="text" value="<%= book.image_url%>" name="image_url">
+      <input type="text" value="<%= book.description%>" name="description">
+      <input type="select" name="bookshelf">
+      <input type="submit" value="Update Book Details">
+    </form>
+  </main>
+  <%include ../../layout/footer%>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Search Results</title>
+    <link href="https://fonts.googleapis.com/css?family=Alegreya|Alegreya+SC|Alegreya+Sans|Alegreya+Sans+SC|Playfair+Display|Playfair+Display+SC" rel="stylesheet">
+    <link rel="icon" type="png" href="images/book_favicon.png"/>
+    <link rel="stylesheet" type="text/css" href="styles/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/base.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/icons.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/layout.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/modules.css"/>
+</head>
+<body>
+    <%include ../../layout/header%>
+    <main class="flex-column">
+        <h4 class="banner">Search Results</h4>
+        <ul class="flex-column">
+            <% books.forEach(book => { %>
+                <li class="flex-column">
+                    <img src=<%= book.image_url %> >
+                    <h3><%= book.title %></h3>
+                    <h4><%= book.author %></h4>
+                    <p class="detail-view-description"><%= book.description %></p>
+                    <button type="button" class="form-button">Select Book</button>
+                    <form action="/selectbook" method="POST" class="details-form">
+                        <label for="title">Title: </label>
+                        <input id="title" type="text" value="<%= book.title%>" name="title">
+
+                        <label for="author">Author: </label>
+                        <input id="author" type="text" value="<%= book.author%>" name="author">
+
+                        <label for="isbn">ISBN: </label>
+                        <input id="isbn" type="text" value="<%= book.isbn%>" name="isbn">
+
+                        <input type="hidden" value="<%= book.image_url%>" name="image_url">
+
+                        <label for="description">Summary: </label>
+                        <textarea id="description" type="text" wrap="soft" value="<%= book.description%>" name="description"><%= book.description%></textarea>
+
+                        <label for="bookshelf">Bookshelf: </label>
+                        <input id="bookshelf" type="text" name="bookshelf" required>
+
+                        <input id="save-book-button" type="submit" value="Save Book" id="submit-form-button">
+                    </form>
+                </li>
+
+            <% }) %>
+        </ul>
+    </main>
+    <%include ../../layout/footer%>
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="/js/app.js"></script>
+</html>
