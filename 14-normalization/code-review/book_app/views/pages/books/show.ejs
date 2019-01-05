@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Book Detail</title>
+    <link href="https://fonts.googleapis.com/css?family=Alegreya|Alegreya+SC|Alegreya+Sans|Alegreya+Sans+SC|Playfair+Display|Playfair+Display+SC" rel="stylesheet">
+    <link rel="icon" type="png" href="../../../images/book_favicon.png"/>
+    <link rel="stylesheet" type="text/css" href="../styles/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="../styles/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../styles/icons.css"/>
+    <link rel="stylesheet" type="text/css" href="../styles/layout.css"/>
+    <link rel="stylesheet" type="text/css" href="../styles/modules.css"/>
+</head>
+<body>
+    <%include ../../layout/header%>
+
+    <main class="flex-column">
+        <h4 class="banner">Book Details</h4>
+        <ul class="flex-column">
+            <%=selected_book.id  %>
+            <li class="flex-column detail-view">
+                <img id = "detail-img" src=<%= selected_book.image_url %> >
+                <h3><%= selected_book.title %></h3>
+                <h4><%= selected_book.author %></h4>
+                <p class="detail-view-description"><%= selected_book.description %></p>
+                <p><%= selected_book.isbn %></p>
+                <p>Bookshelf: <%= selected_book.bookshelf %></p>
+                <form action="/books/edit/<%=selected_book.id%>" method="PUT">
+                    <input type="hidden" name="_method" value="UPDATE">
+                    <input type="submit" value="Edit Book Details">
+                </form>
+                <form action="/books/<%=selected_book.id%>" method="POST">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="submit" value="Remove from Bookshelf">
+                </form>
+            </li>
+        </ul>
+    </main>
+    <%include ../../layout/footer%>
+</body>
+</html>

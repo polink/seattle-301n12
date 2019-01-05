@@ -1,0 +1,457 @@
+/* Font Options to play with
+font-family: 'Alegreya', serif;
+font-family: 'Alegreya Sans', sans-serif;
+font-family: 'Alegreya SC', serif;
+font-family: 'Alegreya Sans SC', sans-serif;
+font-family: 'Playfair Display', serif;
+font-family: 'Playfair Display SC', serif; */
+
+/* ==UNIVERSAL PAGE FEATURES== */
+* {
+  font-family: 'Playfair Display SC', serif;
+}
+
+*:focus {
+  outline: none;
+}
+
+h1, h2, h3, h4, h5, label, p{
+  color: whitesmoke;
+}
+
+h1 {
+  font-family: 'Alegreya SC', serif;
+  padding: 30px, 0, 30px, 9;
+  height: 50px;
+  font-size: 60px;
+  margin-bottom: 7px;
+}
+
+h3 {
+  font-family: 'Alegreya SC', serif;
+  font-size: 150%;
+  text-align: center;
+}
+
+h4 {
+  font-style: italic;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-size: 150%;
+}
+
+h5 {
+  text-align: center;
+  font-size: 100%;
+  padding: 20px;
+}
+
+p {
+  margin-top: 5px; 
+  font-size: 20px;
+ }
+
+label {
+  font-family: 'Alegreya SC', serif;
+}
+
+body {
+  height: 812px;
+  background-image: url("../images/bookshelf-1082309_1920.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-color: #0E2A38;
+}
+
+main{
+  min-height: 130vh;
+}
+
+/* This button styling does not have any effect, but some desired effects have gone missing - simplify form button classes below? */
+button {
+  background-color: rgba(82, 4, 4);
+  color: #D0D0D0;
+  font-family: 'Alegreya SC', serif;
+  padding: 5px 10px;
+  font-size: 20px;
+  border: 5px outset rgba(82, 4, 4);
+}
+
+button:hover {
+  font-style: italic;
+  color: goldenrod;
+}
+
+.banner {
+  background-color:  rgba(82, 4, 4, 0.692);
+  font-family: 'Alegreya SC', serif;
+  width: 100%;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 150px;
+}
+
+.flex-column{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* HEADER & NAVIGATION */
+nav {
+  box-sizing: border-box;
+  border: 2px solid #D0D0D0;
+  color: white;
+  height: 150px;
+  width: 100%;
+  background-color: #0E2A38;
+  position: fixed;
+}
+
+#navTitle{
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* HAMBURGER MENU */
+/* By Erik Terwan https://codepen.io/erikterwan/pen/EVzeRP */
+a {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.menu-options {
+  color: #0E2A38;
+}
+.menu-options:hover {
+  color:  rgb(82, 4, 4, 0.692);
+}
+#menuToggle {
+  display: block;
+  position: relative;
+  top: 25px;
+  margin-left: 25px;
+  z-index: 1;
+  -webkit-user-select: none;
+  user-select: none;
+}
+#menuToggle input {
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  cursor: pointer;
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+  -webkit-touch-callout: none;
+}
+/*Just a quick hamburger*/
+#menuToggle span {
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  background: #cdcdcd;
+  border-radius: 3px;
+  z-index: 1;
+  transform-origin: 4px 0px;
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+#menuToggle span:first-child {
+  transform-origin: 0% 0%;
+}
+#menuToggle span:nth-last-child(2) {
+  transform-origin: 0% 100%;
+}
+/* Transform all the slices of hamburger into a crossmark.*/
+#menuToggle input:checked ~ span {
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+/*But let's hide the middle one.*/
+#menuToggle input:checked ~ span:nth-last-child(3) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+/* Ohyeah and the last one should go the other direction*/
+#menuToggle input:checked ~ span:nth-last-child(2) {
+  transform: rotate(-45deg) translate(0, -1px);
+}
+/*Make this absolute positioned at the top left of the screen*/
+#menu {
+  position: absolute;
+  width: 150px;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+  background: #ededed;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased; /* to stop flickering of text in safari */
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+#menu li {
+  padding: 10px 0px 10px 0px;
+  font-size: 22px;
+  background-color: #ededed;
+  border: none;
+  font-family: 'Alegreya SC', serif;
+}
+/* And let's slide it in from the left*/
+#menuToggle input:checked ~ ul {
+  transform: none;
+}
+/* END OF HAMBURBER NAV */
+
+/* FOOTER */
+footer{
+  height: 75px;
+  background-color: #0E2A38;
+}
+
+/* ==BOOK CONTAINER FEATURES== */
+/* BOOKSHELF (HOME/INDEX) */
+ul {
+  list-style: none;
+  margin: auto;
+  margin-top: 3%;
+}
+
+li {
+  margin-top: 3%;
+  margin-bottom: 3%;
+  background-color:#2323238c;
+  border: 2px outset #D0D0D0;
+  font-family: 'Alegreya Sans', sans-serif;
+  width: 80%;
+  color:  #D0D0D0;
+  font-weight: bold;
+  justify-content: space-evenly;
+  padding: 3%;
+}
+
+img {
+  border: 2px groove #D0D0D0;
+  width: 75%;
+  margin-bottom: 20px;
+  margin-top: 25px; 
+}
+
+.view-details-link{
+  color: whitesmoke;
+  background-color: rgba(82, 4, 4);
+  text-decoration: none;
+  font-family: 'Alegreya SC', serif;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 20px;
+  border: 5px outset rgba(82, 4, 4);
+}
+
+.view-details-link:hover{
+  font-style: italic;
+  color: goldenrod;
+}
+
+.detail-view{
+  height: 1000px;
+}
+
+/* Hidden scrolling technique from Victor Meyer at https://codepen.io/pudgereyem/post/hide-scrollbar-with-css */
+.detail-view-description {
+  height: 200px;
+  overflow: scroll;
+  font-size: 
+}
+
+.detail-view-description::-webkit-scrollbar{
+  width: 0;
+  background-color: transparent;
+}
+
+
+/* == FORMS == */
+/* BOOK DETAILS FORM */
+form {
+  background-color:rgba(82, 4, 4, 0.692);
+  box-sizing: border-box;
+  border: 2px outset #D0D0D0;
+  width: 100%;
+  padding: 25px;
+  margin-top: 10px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+
+input, textarea {
+  width: 100%;
+  background-color: #D0D0D0;
+  margin-bottom: 5px;
+  float: right;
+}
+
+#description {
+  height: 100px;
+  overflow: scroll;
+  /* Uncomment font-family below to remove all caps in summary field of select book form */
+  /* font-family: 'Alegreya Sans', sans-serif; */
+}
+
+#save-book-button {
+  margin-left: 0px;
+  margin-top: 30px;
+  width: 80%;
+  font-size: 20px;
+  background-color: rgba(208,208,208);
+  color: rgba(82, 4, 4);
+  font-family: 'Alegreya SC', serif;
+  padding: 5px 10px;
+  font-size: 20px;
+  border: 5px outset rgba(208,208,208);
+  align-self: center;
+}
+
+#save-book-button:hover {
+  color: rgba(218,165,32);
+  font-style: italic;
+}
+
+/* SEARCH FORM */
+.search-form-container{
+  background-color: #2323238c;
+  padding: 25px;
+  width: 80%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+
+#book-search {
+  width: 100%;
+  background-color: #D0D0D0;
+  height: 30px;
+  font-size: 15px;
+  text-align: center;
+}
+
+.search-radio {
+  width: 100%;
+  text-align: center;
+  /* cursor: default; */
+}
+
+.radio-label {
+  width: 50%;
+  float: right;
+}
+
+.search-categories {
+  width: 50%;
+  color: #D0D0D0;
+  font-size: 20px;
+}
+
+/* SHOW/HIDE FORM */
+.details-form {
+  display:none;
+}
+
+.details-form input {
+  width: 90%;
+  display: block;
+}
+
+.form-button {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  width: 90%;
+  font-family: 'Alegreya SC', serif;
+  padding: 5px 10px;
+  font-size: 20px;
+  height: 60px;
+  color: whitesmoke;
+}
+
+@media screen and (min-width:500px) {
+  /* ==UNIVERSAL PAGE FEATURES== */
+  h3 {
+    font-size: 200%;
+  }
+
+  /* HEADER & NAVIGATION */
+  #navTitle{
+    margin-top: 0px;
+  }
+
+  /* ==BOOK CONTAINER FEATURES== */
+  /* BOOKSHELF (HOME/INDEX) */
+  img {
+    width: 50%;
+  }
+
+  li {
+    margin-top: 3%;
+    margin-bottom: 3%;
+    background-color:#2323238c;
+    border: 2px outset #D0D0D0;
+    font-family: 'Alegreya Sans', sans-serif;
+    width: 50%;
+    color:  #D0D0D0;
+    font-weight: bold;
+    justify-content: space-evenly;
+  }
+
+  /* SEARCH FORM */
+  .search-form-container{
+    background-color: #2323238c;
+    padding: 25px;
+    width: 50%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 20px;
+  }
+
+  #book-search {
+    font-size: 18px;
+  }
+
+  .search-radio {
+    width: 50%;
+    text-align: center;
+    /* cursor: default; */
+  }
+
+  .radio-button {
+    width: 50%;
+    text-align: center;
+    float: right;
+  }
+
+  .form-button {
+    font-size: 30px;
+  }
+}
+
+
+
+
+
+
+
